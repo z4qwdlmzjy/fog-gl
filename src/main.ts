@@ -1,5 +1,7 @@
 import { FogPass, type FogParams, type FrameState } from './fog';
 import { halton, invert, lookAt, multiply, normalize, perspective, type Mat4, type Vec3 } from './math';
+import { attachPanel } from './tuning/panel';
+import { DEFAULT_PARAMS } from './tuning/presets';
 
 const canvas = document.querySelector<HTMLCanvasElement>('#view');
 const hud = document.querySelector<HTMLOutputElement>('#hud');
@@ -12,14 +14,9 @@ const gl = canvas.getContext('webgl2', {
 });
 if (!gl) throw new Error('this demo needs WebGL2');
 
-const params: FogParams = {
-  density: 0.055,
-  scatter: 0.55,
-  marchSteps: 40,
-  temporal: true,
-  blend: 0.9,
-};
+const params: FogParams = { ...DEFAULT_PARAMS };
 const fog = new FogPass(gl, params);
+attachPanel(params);
 
 const sunDir = normalize([0.42, 0.72, 0.31]);
 const target: Vec3 = [0, 2.5, 0];
