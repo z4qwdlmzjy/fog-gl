@@ -100,6 +100,10 @@ export function attachPanel(params: FogParams, mount: HTMLElement = document.bod
 
   const syncAfterPreset = (event: KeyboardEvent) => {
     if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.key === 't') {
+      queueMicrotask(sync);
+      return;
+    }
     const index = Number(event.key) - 1;
     const preset = PRESETS[index];
     if (!preset) return;
