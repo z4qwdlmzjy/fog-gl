@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fog-gl - volumetric fog with temporal reprojection</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #101317;
+        color: #cfd6df;
+        font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      #view {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        cursor: grab;
+      }
+      #hud {
+        position: fixed;
+        left: 12px;
+        bottom: 12px;
+        padding: 4px 8px;
+        background: rgba(10, 12, 16, 0.7);
+        border: 1px solid #2a313b;
+        border-radius: 4px;
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <output id="hud"></output>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
